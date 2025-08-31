@@ -311,6 +311,19 @@ pre code {
   border-left-color: #f44336; 
 }
 
+
+paragraph {
+  font-size: 5rem;
+  color: #111;
+  font-weight: bold;
+}
+aftparagraph {
+  font-size: 2rem;
+  color: #111;
+  font-weight:normal;
+}
+
+
 /* 11. Utility classes */
 .container {
   max-width: 900px;
@@ -338,6 +351,9 @@ pre code {
 .mt-1 { margin-top: 0.25rem; }
 .mt-2 { margin-top: 0.5rem; }
 .mt-3 { margin-top: 1rem; }
+
+
+
 
 /* 12. Animations */
 @keyframes fadeIn { 
@@ -379,11 +395,11 @@ pre code {
     padding: 1rem;
   }
   
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.75rem; }
-  h3 { font-size: 1.5rem; }
-  h4 { font-size: 1.25rem; }
-  h5 { font-size: 1.1rem; }
+  h1 { font-size: 3.5rem; }
+  h2 { font-size: 3rem; }
+  h3 { font-size: 2.5rem; }
+  h4 { font-size: 2rem; }
+  h5 { font-size: 1.5rem; }
   h6 { font-size: 1rem; }
   
   .container {
@@ -424,3 +440,5 @@ pre code {
     page-break-inside: avoid;
   }
 }
+
+
