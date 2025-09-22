@@ -1,146 +1,1107 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Intelektika Team</title>
-    <link rel="stylesheet" href="gitmd.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelektika Team | Innovative Technology Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #fcfaf7;
+            --paper: #f8f6f2;
+            --ink: #1a1a1a;
+            --carbon: #2e2e2e;
+            --accent: #5e81ac;
+            --accent-dark: #4a6a94;
+            --accent-light: #8fbcbb;
+            --highlight: #d08770;
+            --border: #e4e0d9;
+            --radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            color: var(--ink);
+            background-color: var(--paper);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(94, 129, 172, 0.03) 0%, transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(143, 188, 187, 0.03) 0%, transparent 25%),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        header {
+            padding: 2rem 0;
+            position: sticky;
+            top: 0;
+            background-color: rgba(252, 250, 247, 0.97);
+            backdrop-filter: blur(8px);
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Newsreader', serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: var(--ink);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--ink);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--paper);
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: var(--ink);
+            font-weight: 400;
+            font-size: 0.95rem;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: var(--transition);
+            font-feature-settings: 'liga' 1;
+        }
+
+        .nav a:hover {
+            color: var(--accent);
+        }
+
+        .nav a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav a:hover:after {
+            width: 100%;
+        }
+
+        .hero {
+            padding: 6rem 0 5rem;
+            position: relative;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: rgba(94, 129, 172, 0.1);
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 400;
+            border-radius: 100px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(94, 129, 172, 0.2);
+        }
+
+        .hero-title {
+            font-family: 'Newsreader', serif;
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            font-weight: 500;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--ink);
+            letter-spacing: -0.5px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            font-weight: 350;
+            color: var(--carbon);
+            margin-bottom: 2.5rem;
+            max-width: 90%;
+            line-height: 1.6;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--accent);
+            line-height: 1;
+            font-feature-settings: 'tnum' 1;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--carbon);
+            margin-top: 0.5rem;
+            font-weight: 350;
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 380px;
+            background: linear-gradient(135deg, rgba(143, 188, 187, 0.1) 0%, rgba(94, 129, 172, 0.1) 100%);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+
+        .element-1 {
+            width: 80px;
+            height: 80px;
+            background: var(--accent-light);
+            top: 30px;
+            left: 30px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .element-2 {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            bottom: 40px;
+            right: 40px;
+            animation: float 4s ease-in-out infinite reverse;
+        }
+
+        .element-3 {
+            width: 40px;
+            height: 40px;
+            background: var(--highlight);
+            top: 100px;
+            right: 80px;
+            animation: float 5s ease-in-out infinite 1s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-title {
+            font-family: 'Newsreader', serif;
+            font-size: 2.5rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: var(--ink);
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--carbon);
+            line-height: 1.6;
+            font-weight: 350;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--cream);
+            border-radius: var(--radius);
+            padding: 2.5rem 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-light), var(--accent));
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card:hover:before {
+            opacity: 1;
+        }
+
+        .project-status {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            border-radius: 100px;
+            margin-bottom: 1.5rem;
+            background-color: rgba(94, 129, 172, 0.1);
+            color: var(--accent);
+            border: 1px solid rgba(94, 129, 172, 0.2);
+        }
+
+        .status-dev {
+            background-color: rgba(208, 135, 112, 0.1);
+            color: var(--highlight);
+            border: 1px solid rgba(208, 135, 112, 0.2);
+        }
+
+        .status-stable {
+            background-color: rgba(143, 188, 187, 0.1);
+            color: var(--accent-light);
+            border: 1px solid rgba(143, 188, 187, 0.2);
+        }
+
+        .status-alpha {
+            background-color: rgba(94, 129, 172, 0.1);
+            color: var(--accent);
+            border: 1px solid rgba(94, 129, 172, 0.2);
+        }
+
+        .project-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--ink);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--paper);
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .project-title {
+            font-family: 'Newsreader', serif;
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: var(--ink);
+        }
+
+        .project-description {
+            color: var(--carbon);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            font-weight: 350;
+            line-height: 1.6;
+        }
+
+        .project-features {
+            margin-bottom: 1.5rem;
+        }
+
+        .project-feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--carbon);
+            font-weight: 350;
+        }
+
+        .project-feature:before {
+            content: "→";
+            margin-right: 0.5rem;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.8rem;
+            background-color: var(--ink);
+            color: var(--paper);
+            text-decoration: none;
+            font-weight: 400;
+            border-radius: var(--radius);
+            transition: var(--transition);
+            border: 1px solid var(--ink);
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--ink);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--ink);
+            border: 1px solid var(--border);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--ink);
+            color: var(--paper);
+            border-color: var(--ink);
+        }
+
+        .philosophy-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .philosophy-text {
+            font-size: 1.1rem;
+            color: var(--carbon);
+            line-height: 1.8;
+            font-weight: 350;
+        }
+
+        .philosophy-text blockquote {
+            font-family: 'Newsreader', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: var(--ink);
+            margin: 2rem 0;
+            padding-left: 1.5rem;
+            border-left: 3px solid var(--accent);
+            line-height: 1.4;
+            font-style: italic;
+        }
+
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .principle-card {
+            background-color: var(--cream);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .principle-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+        }
+
+        .principle-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: var(--ink);
+        }
+
+        .principle-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--ink);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--paper);
+            font-size: 0.9rem;
+        }
+
+        .principle-description {
+            color: var(--carbon);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            font-weight: 350;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .news-card {
+            background-color: var(--cream);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border);
+            height: 100%;
+        }
+
+        .news-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.1);
+        }
+
+        .news-date {
+            font-size: 0.85rem;
+            color: var(--carbon);
+            margin-bottom: 0.75rem;
+            font-weight: 350;
+        }
+
+        .news-title {
+            font-family: 'Newsreader', serif;
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: var(--ink);
+            line-height: 1.3;
+        }
+
+        .news-content {
+            color: var(--carbon);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            font-weight: 350;
+        }
+
+        .news-content a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted var(--accent);
+        }
+
+        .news-content a:hover {
+            border-bottom: 1px solid var(--accent);
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .tech-item {
+            padding: 0.5rem 1.2rem;
+            background-color: var(--cream);
+            color: var(--ink);
+            border-radius: 100px;
+            font-size: 0.9rem;
+            font-weight: 400;
+            border: 1px solid var(--border);
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, rgba(94, 129, 172, 0.05) 0%, rgba(143, 188, 187, 0.05) 100%);
+            color: var(--ink);
+            padding: 5rem 0;
+            text-align: center;
+            border-radius: var(--radius);
+            margin: 5rem 0;
+            border: 1px solid var(--border);
+        }
+
+        .cta-title {
+            font-family: 'Newsreader', serif;
+            font-size: 2.5rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .cta-text {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            color: var(--carbon);
+            font-weight: 350;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn-light {
+            background-color: var(--paper);
+            color: var(--ink);
+            border: 1px solid var(--border);
+        }
+
+        .btn-light:hover {
+            background-color: var(--ink);
+            color: var(--paper);
+            border-color: var(--ink);
+        }
+
+        footer {
+            background-color: var(--ink);
+            color: var(--paper);
+            padding: 5rem 0 3rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+        }
+
+        .footer-logo {
+            font-family: 'Newsreader', serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-description {
+            opacity: 0.7;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-weight: 350;
+        }
+
+        .footer-heading {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--paper);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 350;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            opacity: 0.7;
+            font-size: 0.9rem;
+            font-weight: 350;
+        }
+
+        @media (max-width: 900px) {
+            .hero-content,
+            .philosophy-content,
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .principles-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .nav {
+                gap: 1.5rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .code-block {
+            background-color: var(--ink);
+            color: var(--paper);
+            padding: 2rem;
+            border-radius: var(--radius);
+            font-family: 'Outfit', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border: 1px solid var(--carbon);
+        }
+
+        .code-comment {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .code-keyword {
+            color: #88c0d0;
+        }
+
+        .code-string {
+            color: #a3be8c;
+        }
+
+        .code-function {
+            color: #ebcb8b;
+        }
+
+        .decorative-element {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .deco-1 {
+            top: 15%;
+            left: 5%;
+        }
+
+        .deco-2 {
+            bottom: 10%;
+            right: 8%;
+        }
+    </style>
 </head>
-<body class="github-md-body">
-    <div class="github-md-container">
-        
-        <h1 class="github-md-h1">Intelektika Team</h1>
-        <p class="github-md-p">We’re an innovative team from Kvantorium (Dimitrovgrad), building open technologies for developers, engineers, and makers. Our mission is to make powerful tools accessible, versatile, and ready to use "out of the box." We don’t just build devices — we create an ecosystem: from hardware platforms to libraries and software that unlock their full potential.</p>
-        <nav class="github-md-nav">
-            <p>
-                <a href="#projects" class="github-md-nav-item">Projects</a>
-                <a href="#philosophy" class="github-md-nav-item">Philosophy</a>
-                <a href="#contact" class="github-md-nav-item">Contact</a>
-                <a href="#news" class="github-md-nav-item">News</a>
-            </p>
-        </nav>
-        <div class="github-md-note github-md-note-info">
-            <strong>Note:</strong> Our tools are designed to be accessible, modular, and community-driven.
+<body>
+    <div class="decorative-element deco-1"></div>
+    <div class="decorative-element deco-2"></div>
+    
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    Intelektika team
+                </div>
+                <nav class="nav">
+                    <a href="#projects">Projects</a>
+                    <a href="#philosophy">Philosophy</a>
+                    <a href="#tech">Tech Stack</a>
+                    <a href="#news">News</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+            </div>
         </div>
+    </header>
 
-        <div class="github-md-grid github-md-grid-3" style="margin: 2rem 0;">
-            <div class="github-md-card github-md-text-center">
-                <div style="font-size: 2rem; font-weight: bold; color: #0366d6;">3</div>
-                <div>Core Projects</div>
-            </div>
-            <div class="github-md-card github-md-text-center">
-                <div style="font-size: 2rem; font-weight: bold; color: #0366d6;">80+</div>
-                <div>Monthly Commits</div>
-            </div>
-            <div class="github-md-card github-md-text-center">
-                <div style="font-size: 2rem; font-weight: bold; color: #0366d6;">80%</div>
-                <div>Open Source</div>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge">Innovative Technology Solutions</div>
+                    <h1 class="hero-title">Building open technologies for developers, engineers, and makers</h1>
+                    <p class="hero-subtitle">We're an innovative team from Kvantorium (Dimitrovgrad), creating powerful tools that are accessible, versatile, and ready to use "out of the box."</p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">4</span>
+                            <span class="stat-label">Core Projects</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">80+</span>
+                            <span class="stat-label">Monthly Commits</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">80%</span>
+                            <span class="stat-label">Open Source</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="floating-element element-1"></div>
+                    <div class="floating-element element-2"></div>
+                    <div class="floating-element element-3"></div>
+                </div>
             </div>
         </div>
-        <p>We actively maintain and develop GitHub, we have 3 main projects and 80% of all code is open.</p>
-        
-        <h2 class="github-md-h2" id="projects">Main Projects</h2>
-        
-        <div class="github-md-grid github-md-grid-3">
-            <div class="github-md-card">
-                <h3 class="github-md-h3">Patch</h3>
-                <p class="github-md-p">Programmable automation controller with open UART protocol. Execute Python scripts with physical buttons.</p>
-                <ul class="github-md-ul">
-                    <li class="github-md-li">RP2040 microcontroller</li>
-                    <li class="github-md-li">8 buttons + 2 encoders</li>
-                    <li class="github-md-li">Text-based open protocol</li>
-                </ul>
-                <a href="https://github.com/Intelektika-team/Project-PATCH" class="github-md-button github-md-button-primary">View on GitHub</a>
+    </section>
+
+    <section class="section" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Projects</h2>
+                <p class="section-subtitle">We don't just build devices — we create an ecosystem: from hardware platforms to libraries and software that unlock their full potential.</p>
             </div>
             
-            <div class="github-md-card">
-                <h3 class="github-md-h3">Nelin</h3>
-                <p class="github-md-p">Neural network library for simplicity and flexibility. Clean intuitive API for ML development.</p>
-                <ul class="github-md-ul">
-                    <li class="github-md-li">Python 3.9+</li>
-                    <li class="github-md-li">GPU acceleration with 'nlarr'</li>
-                    <li class="github-md-li">Base RNN support</li>
-                </ul>
-                <a href="https://github.com/Intelektika-team/NELIN" class="github-md-button github-md-button-primary">View on GitHub</a>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <span class="project-status status-dev">In Active Development</span>
+                    <div class="project-icon">P</div>
+                    <h3 class="project-title">Patch</h3>
+                    <p class="project-description">Programmable automation controller with open UART protocol. Execute Python scripts with physical buttons.</p>
+                    <div class="project-features">
+                        <div class="project-feature">RP2040 microcontroller</div>
+                        <div class="project-feature">8 buttons + 2 encoders</div>
+                        <div class="project-feature">Text-based open protocol</div>
+                    </div>
+                    <a href="https://github.com/Intelektika-team/Project-PATCH" class="btn">View on GitHub</a>
+                </div>
+                
+                <div class="project-card">
+                    <span class="project-status status-alpha">Public Alpha 0.4.2</span>
+                    <div class="project-icon">N</div>
+                    <h3 class="project-title">Nelin</h3>
+                    <p class="project-description">Neural network library for simplicity and flexibility. Clean intuitive API for ML development.</p>
+                    <div class="project-features">
+                        <div class="project-feature">Python 3.9+</div>
+                        <div class="project-feature">GPU acceleration with 'nlarr'</div>
+                        <div class="project-feature">Base RNN support</div>
+                    </div>
+                    <a href="https://github.com/Intelektika-team/NELIN" class="btn">View on GitHub</a>
+                </div>
+                
+                <div class="project-card">
+                    <span class="project-status status-stable">Stable v0.7.5</span>
+                    <div class="project-icon">V</div>
+                    <h3 class="project-title">Voxel</h3>
+                    <p class="project-description">The our own scripting language based Brainfuck concept with added more functions and python integrate.</p>
+                    <div class="project-features">
+                        <div class="project-feature">Python scripts architecture</div>
+                        <div class="project-feature">Code translate to Python</div>
+                        <div class="project-feature">The 'vxl' cli utility</div>
+                    </div>
+                    <a href="https://github.com/Intelektika-team/Voxel" class="btn">View on GitHub</a>
+                </div>
             </div>
             
-            <div class="github-md-card">
-                <h3 class="github-md-h3">Utitool</h3>
-                <p class="github-md-p">CLI utility with unique plugin system. Extend functionality with Python/Swift scripts.</p>
-                <ul class="github-md-ul">
-                    <li class="github-md-li">Python plugin architecture</li>
-                    <li class="github-md-li">Main platform - MacOS 11+</li>
-                    <li class="github-md-li">Root system & integrated bash</li>
-                </ul>
-                <a href="https://github.com/Intelektika-team/utitool" class="github-md-button github-md-button-primary">View on GitHub</a>
+            <div style="text-align: center; margin-top: 3rem;">
+                <p style="font-weight: 350; color: var(--carbon);">Our projects have closed hardware and open software. This allows us to earn money and at the same time create a powerful product with a large community.</p>
             </div>
         </div>
-        <p>Our projects have closed hardware and open software. This allows us to earn money and at the same time create a powerful product with a large community.</p>
+    </section>
 
-        <h2 class="github-md-h2" id="philosophy">Our Philosophy</h2>
-        <p class="github-md-p">Our motto is simple: "Tech shouldn't be an elite club — it's a tool for everyone." To achieve this, we declare war on complexity. This means hardware without pointless wires, software without hidden dependencies, and documentation that actually makes sense. We build tools so you can focus on solving problems, not technical puzzles.</p>
-        <blockquote class="github-md-blockquote">
-            Your projects should solve problems, not technical puzzles.
-        </blockquote>
-        <p>We don't create individual gadgets and tools - we create an ecosystem.</p>
-
-        <p>
-            <h2 class="github-md-h2" id="news">Last news</h2>
-            <div class="github-md-grid github-md-grid-3">
-                <div class="github-md-card">
-                    <p><small>June 15, 2025</small></p>
-                    <h3>PiCore project stopped-</h3>
-                    <p>Due to lack of resources, the project was suspended indefinitely.</p>
+    <section class="section" id="philosophy">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Philosophy</h2>
+                <p class="section-subtitle">We believe that technology should be accessible to everyone, not just experts.</p>
+            </div>
+            
+            <div class="philosophy-content">
+                <div class="philosophy-text">
+                    <p>Our motto is simple: "Tech shouldn't be an elite club — it's a tool for everyone." To achieve this, we declare war on complexity. This means hardware without pointless wires, software without hidden dependencies, and documentation that actually makes sense.</p>
+                    
+                    <blockquote>Your projects should solve problems, not technical puzzles.</blockquote>
+                    
+                    <p>We don't create individual gadgets and tools - we create an ecosystem. We build tools so you can focus on solving problems, not technical puzzles.</p>
                 </div>
-                <div class="github-md-card">
-                    <p><small>August 3, 2025</small></p>
-                    <h3>Utitool release-</h3>
-                    <p>The first release of the utitool tool, it is already available in the stable version 0.9.5</p>
-                </div>
-                <div class="github-md-card">
-                    <p><small>August 15, 2025</small></p>
-                    <h3>Nelin 0.4.2 Public alpha 2-</h3>
-                    <p>The first public alpha release has <a href="https://github.com/Intelektika-team/NELIN">already taken place.</a> You can try the library right now! </p>
-                </div>
-                <div class="github-md-card">
-                    <p><small>August 30, 2025</small></p>
-                    <h3>Start of the Patch developing-</h3>
-                    <p>We have already started developing the device, you can follow the progress in the <a href="https://github.com/Intelektika-team/Project-PATCH">repository</a> and on this site!</p>
-                </div>
-                <div class="github-md-card">
-                    <p><small>August 31, 2025</small></p>
-                    <h3>First 100 commits/month-</h3>
-                    <p>We reached our goal of 100 commits per month for the first time!</p>
-                </div>
-                <div class="github-md-card">
-                    <p><small>September 10, 2025</small></p>
-                    <h3>New project: VoxLang-</h3>
-                    <p>We create our own programming language! You can download language from our <a href="https://github.com/Intelektika-team/Voxel">github</a>.</p>
+                
+                <div class="principles-grid">
+                    <div class="principle-card">
+                        <h4 class="principle-title">
+                            <div class="principle-icon">🚀</div>
+                            Ready-to-Run
+                        </h4>
+                        <p class="principle-description">Hardware and software are tested together. Unbox it — and start creating immediately.</p>
+                    </div>
+                    
+                    <div class="principle-card">
+                        <h4 class="principle-title">
+                            <div class="principle-icon">🔓</div>
+                            Openness
+                        </h4>
+                        <p class="principle-description">All code and documentation are public. Fork, modify, or integrate into your projects!</p>
+                    </div>
+                    
+                    <div class="principle-card">
+                        <h4 class="principle-title">
+                            <div class="principle-icon">🧱</div>
+                            Modularity
+                        </h4>
+                        <p class="principle-description">Our libraries work with both our hardware and platforms like Raspberry Pi, Arduino, or ESP32.</p>
+                    </div>
+                    
+                    <div class="principle-card">
+                        <h4 class="principle-title">
+                            <div class="principle-icon">👥</div>
+                            Community
+                        </h4>
+                        <p class="principle-description">We unite beginners, engineers, and researchers: joint hackathons, code reviews, and startup ideas.</p>
+                    </div>
                 </div>
             </div>
-        </p>
-
-
-        
-
-        <hr class="github-md-hr">
-        <div class="github-md-grid github-md-grid-2">
-            <h3>Team lead - pt. <p>The rest of the team prefers to stay behind the scenes.</p></h3>
         </div>
+    </section>
 
-        <h2 class="github-md-h2" id="contact">Connect</h2>
-        <div class="github-md-grid github-md-grid-3">
-            <a href="https://github.com/Intelektika-team" class="github-md-button">GitHub</a>
-            <a href="https://youtube.com/@Intelektika" class="github-md-button">YouTube</a>
-            <a href="mailto:kvantorium73.int@gmail.com" class="github-md-button">Email</a>
+    <section class="section" id="tech">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Tech Stack</h2>
+                <p class="section-subtitle">We use modern technologies to build efficient and reliable solutions.</p>
+            </div>
+            
+            <div class="tech-stack">
+                <span class="tech-item">RP2040</span>
+                <span class="tech-item">ESP8266</span>
+                <span class="tech-item">Orange Pi</span>
+                <span class="tech-item">C/C++</span>
+                <span class="tech-item">Python</span>
+                <span class="tech-item">Swift</span>
+                <span class="tech-item">Bash</span>
+                <span class="tech-item">Rust</span>
+                <span class="tech-item">TensorFlow</span>
+                <span class="tech-item">Fusion 360</span>
+                <span class="tech-item">PlatformIO</span>
+                <span class="tech-item">Git</span>
+                <span class="tech-item">GitHub Actions</span>
+                <span class="tech-item">Arduino</span>
+                <span class="tech-item">Blender</span>
+            </div>
+            
+            <div style="margin-top: 3rem;">
+                <h3 style="font-family: 'Newsreader', serif; font-size: 1.8rem; margin-bottom: 1.5rem; font-weight: 500;">Voxel — Our Programming Language</h3>
+                <p style="color: var(--carbon); margin-bottom: 1.5rem; font-weight: 350;">We have created our own programming language inspired by the Brainfuck concept. The language has its own command-line utility called vxl for working with projects.</p>
+                
+                <div class="code-block">
+                    <span class="code-comment">// Simple bash use</span><br>
+                    <span class="code-keyword">bash</span>= echo <span class="code-string">//s Hello, //s World</span>;<br>
+                    <br>
+                    <span class="code-comment">// Vxl install package usage</span><br>
+                    <span class="code-keyword">bash</span>= vxl <span class="code-string">//s -i //s html</span>;<br>
+                    <br>
+                    <span class="code-comment">// Example tape usage</span><br>
+                    &lt;; &gt;=2; +=2; +; -; out.now;<br>
+                    <br>
+                    <span class="code-comment">// Multi-line Python block</span><br>
+                    :<span class="code-function">pyl-custom_logic</span>-{<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;import requests<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;response = requests.get('https://api.example.com')<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;print(response.status_code)<br>
+                    };<br>
+                    <br>
+                    <span class="code-comment">// Use defined Python code</span><br>
+                    pylpaste= custom_logic;<br>
+                    <br>
+                    <span class="code-comment">// Example output.string usage</span><br>
+                    out.str= <span class="code-string">Hello, //s World</span>;<br>
+                </div>
+            </div>
         </div>
-        
+    </section>
 
-       
-        
-        <div class="github-md-text-center github-md-mt-4 github-md-mb-4">
-            <p class="github-md-p">© 2025 Intelektika Team - Dimitrovgrad, Russia</p>
-            <p>All rights reserved.</p>
+    <section class="section" id="news">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Latest News</h2>
+                <p class="section-subtitle">Stay up to date with our latest developments and announcements.</p>
+            </div>
+            
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-date">June 15, 2025</div>
+                    <h3 class="news-title">PiCore project stopped</h3>
+                    <div class="news-content">
+                        <p>Due to lack of resources, the project was suspended indefinitely.</p>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-date">August 3, 2025</div>
+                    <h3 class="news-title">Utitool release</h3>
+                    <div class="news-content">
+                        <p>The first release of the utitool tool, it is already available in the stable version 0.9.5</p>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-date">August 15, 2025</div>
+                    <h3 class="news-title">Nelin 0.4.2 Public alpha 2</h3>
+                    <div class="news-content">
+                        <p>The first public alpha release has <a href="https://github.com/Intelektika-team/NELIN">already taken place.</a> You can try the library right now!</p>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-date">August 30, 2025</div>
+                    <h3 class="news-title">Start of the Patch developing</h3>
+                    <div class="news-content">
+                        <p>We have already started developing the device, you can follow the progress in the <a href="https://github.com/Intelektika-team/Project-PATCH">repository</a> and on this site!</p>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-date">August 31, 2025</div>
+                    <h3 class="news-title">First 100 commits/month</h3>
+                    <div class="news-content">
+                        <p>We reached our goal of 100 commits per month for the first time!</p>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-date">September 10, 2025</div>
+                    <h3 class="news-title">New project: VoxLang</h3>
+                    <div class="news-content">
+                        <p>We create our own programming language! You can download language from our <a href="https://github.com/Intelektika-team/Voxel">github</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="cta-section">
+            <h2 class="cta-title">Join Our Community</h2>
+            <p class="cta-text">We welcome contributors for SDK development, testing, and docs translation. Star our repositories to track updates!</p>
+            <div class="cta-buttons">
+                <a href="https://github.com/Intelektika-team" class="btn btn-light">View on GitHub</a>
+                <a href="mailto:kvantorium73.int@gmail.com" class="btn btn-outline">Contact Us</a>
+            </div>
         </div>
     </div>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">
+                        <div class="logo-icon">I</div>
+                        Intelektika
+                    </div>
+                    <p class="footer-description">Building a future where tech serves people — not the other way around.</p>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Projects</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://github.com/Intelektika-team/Patch">Patch</a></li>
+                        <li><a href="https://github.com/Intelektika-team/Nelin">Nelin</a></li>
+                        <li><a href="https://github.com/Intelektika-team/Utitool">Utitool</a></li>
+                        <li><a href="https://github.com/Intelektika-team/Voxel">Voxel</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://github.com/Intelektika-team">GitHub</a></li>
+                        <li><a href="https://youtube.com/@Intelektika">YouTube</a></li>
+                        <li><a href="mailto:kvantorium73.int@gmail.com">Email</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">About</h4>
+                    <ul class="footer-links">
+                        <li><a href="#philosophy">Our Philosophy</a></li>
+                        <li><a href="#tech">Tech Stack</a></li>
+                        <li><a href="#news">News</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 Intelektika Team - Dimitrovgrad, Russia</p>
+                <p>All rights reserved. Team lead - pt. The rest of the team prefers to stay behind the scenes.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
